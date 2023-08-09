@@ -48,6 +48,8 @@ def todos():
     d=request.get_json() 
     with open("todo.json", 'r') as f:
         df = pd.read_json(f) 
+    if df.columns.empty :
+      df=pd.DataFrame(columns=["ID","Title","Status"])
     if d['ID'] not in list(df['ID']): # only unique ids are accepted
       todo={"ID":d['ID'],"Title":d['Title'],"Status":bool(d['Status']) }
       df=df._append(todo,ignore_index=True) 
