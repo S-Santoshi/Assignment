@@ -12,8 +12,7 @@ from logging.config import dictConfig
 #testcases
 #filtering
 #pagination
- 
- 
+
 
 dictConfig({
     'version': 1,
@@ -152,8 +151,7 @@ def todo(id):
   except Exception as e:
     app.logger.info(f'Exception raised by {request.method} method. Error: {e.args}')
     return jsonify({"errors":e.args}), 400
-    
-    
+       
 if __name__=="__main__":
   with app.app_context():
     # db.drop_all()
